@@ -39,6 +39,7 @@ export default function Playboard() {
       if (currentScore + 1 > bestScore) {
         setBestScore(currentScore + 1);
       }
+      checkIfWin();
       //shuffle images
       setImagesData(shuffleImgDataArr(imagesData));
     } else {
@@ -68,6 +69,15 @@ export default function Playboard() {
       ];
     }
     return arrayCopy;
+  }
+
+  function checkIfWin() {
+    if (currentScore + 1 === numberOfCards) {
+      alert("Congratulation! You won deez dragon balls");
+      setImagesData(shuffleImgDataArr(imagesData));
+      setCurrentScore(0);
+      setPickedCardsId([]);
+    }
   }
 
   return (
